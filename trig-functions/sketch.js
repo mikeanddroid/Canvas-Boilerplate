@@ -11,10 +11,10 @@ function setup() {
   centerY = height / 2;
   centerX = width / 2;
   offset = height * .3
-  speed = 0.05;
+  speed = 0.01;
 
   particle = new Particle(centerX, centerY, 100, offset, 0, speed, 'rgba(250, 210, 255, 1)');
-  particle2 = new Particle(200, centerY, 150, offset, 0, random(0.03, 0.1), 'rgba(250, 10, 255, 1)');
+  particle2 = new Particle(200, centerY, 150, offset, 0, random(0.01, 0.1), 'rgba(250, 10, 255, 1)');
 
 }
 
@@ -37,9 +37,12 @@ function Particle(x, y, radius, offset, startAngle, speed, color) {
   this.render = function() {
 
     var y = this.y + Math.sin(this.startAngle) * this.offset;
-  
+    var scaling_offset = this.radius * 0.8;
+    var radius = this.radius + Math.cos(this.startAngle) * scaling_offset;
+    
+    noStroke();
     fill(this.color);
-    arc(this.x, y, this.radius, this.radius, 0, TWO_PI);
+    arc(this.x, y, radius, radius, 0, TWO_PI);
 
   }
 
