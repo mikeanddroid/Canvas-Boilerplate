@@ -9,8 +9,8 @@ var groundHeight = 100;
 
 function setup() {
 
-  canvas_context = createCanvas(windowWidth, windowHeight);
-  canvas_context.parent('myContainer');
+  createCanvas(innerWidth, innerHeight);
+  // canvas_context.parent('myContainer');
 
   stars = [];
   mini_stars = [];
